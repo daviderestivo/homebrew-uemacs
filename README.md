@@ -1,5 +1,7 @@
 # homebrew-uemacs
 
+[![uEmacs](https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml/badge.svg)](https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml)
+
 Homebrew formula for uEmacs, incorporating Linus Torvalds' improvements: [GitHub link](https://github.com/torvalds/uemacs).
 
 ## Introduction
