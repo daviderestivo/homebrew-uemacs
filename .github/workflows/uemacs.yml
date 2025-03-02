@@ -3,7 +3,7 @@ name: uEmacs
 on:
   push:
     branches:
-      - master
+      - main
       - dev
     paths:
       - 'Formula/uemacs.rb'
