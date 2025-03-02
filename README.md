@@ -57,7 +57,7 @@ From https://github.com/torvalds/uemacs/blob/master/README
 
 ```
 brew tap daviderestivo/uemacs
-brew install daviderestivo/uemacs
+brew install uemacs
 ```
 
 ## Run it
