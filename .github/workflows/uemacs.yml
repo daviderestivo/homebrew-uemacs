@@ -1,0 +1,36 @@
+name: uemacs
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+    paths:
+      - 'Formula/uemacs.rb'
+      - '.github/workflows/uemacs.yml'
+  pull_request:
+    paths:
+      - 'Formula/uemacs.rb'
+      - '.github/workflows/uemacs.yml'
+  schedule:
+    - cron:  '0 6 * * *'
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [macos-latest]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build uemacs
+      run: |
+        brew update
+        brew upgrade || true
+        brew install --verbose Formula/uemacs.rb
+
+    - name: Test installation
+      run: brew test Formula/uemacs.rb
