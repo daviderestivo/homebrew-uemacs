@@ -1,6 +1,6 @@
 # homebrew-uemacs
 
-Homebrew Formula for uEmacs which includes Linus Torvalds improvements (https://github.com/torvalds/uemacs).
+Homebrew formula for uEmacs, incorporating Linus Torvalds' improvements: [GitHub link](https://github.com/torvalds/uemacs).
 
 ## Introduction
 
@@ -17,9 +17,9 @@ AIX), and VAX/VMS. Some of its capabilities include:
 
 From https://github.com/torvalds/uemacs/blob/master/README
 
-> +---------------+
-> | uEmacs/PK 4.0 |
-> +---------------+
+>         +---------------+
+>         | uEmacs/PK 4.0 |
+>         +---------------+
 >
 >         Full screen editor based on MicroEMACS 3.9e
 >
@@ -41,11 +41,11 @@ From https://github.com/torvalds/uemacs/blob/master/README
 >         [Daniel M. Lawrence].
 >
 >
-> WHAT IS uEmacs/PK?
+>         WHAT IS uEmacs/PK?
 >
-> uEmacs/PK 4.0 is an enhanced version of MicroEMACS 3.9e. Enhancements
-> have been incorporated by Petri H. Kutvonen, University of Helsinki,
-> Finland <kutvonen@cs.Helsinki.FI>.
+>         uEmacs/PK 4.0 is an enhanced version of MicroEMACS 3.9e. Enhancements
+>         have been incorporated by Petri H. Kutvonen, University of Helsinki,
+>         Finland <kutvonen@cs.Helsinki.FI>.
 
 ## Installation
 
@@ -62,4 +62,4 @@ em
 
 ## Documentation
 
-[uEmacs manual](./doc/uemacs.pdf)
+[uEmacs reference manual](./doc/uemacs.pdf)
