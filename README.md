@@ -1,6 +1,10 @@
 # homebrew-uemacs
 
-<p align="center">[![uEmacs](https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml/badge.svg)](https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml)</p>
+<p align="center">
+  <a href="https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml">
+    <img src="https://github.com/daviderestivo/homebrew-uemacs/actions/workflows/uemacs.yml/badge.svg" alt="uEmacs CI Status Badge">
+  </a>
+</p>
 
 Homebrew formula for uEmacs, incorporating Linus Torvalds' improvements: [GitHub link](https://github.com/torvalds/uemacs).
 
