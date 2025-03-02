@@ -1,4 +1,4 @@
-name: uemacs
+name: uEmacs
 
 on:
   push:
@@ -26,11 +26,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Build uemacs
+    - name: Build uEmacs
       run: |
         brew update
         brew upgrade || true
         brew install --verbose Formula/uemacs.rb
 
-    - name: Test installation
+    - name: Test uEmacs installation
       run: brew test Formula/uemacs.rb
