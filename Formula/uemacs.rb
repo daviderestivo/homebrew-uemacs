@@ -12,4 +12,8 @@ class Uemacs < Formula
     system "make"
     bin.install "em"
   end
+
+  test do
+    assert_equal "uEmacs/Pk version 4.0.15", shell_output("#{bin}/em --version").strip
+  end
 end
