@@ -26,11 +26,15 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
+    - name: Tap uEmacs
+      run: |
+        brew tap daviderestivo/uemacs
+
     - name: Build uEmacs
       run: |
         brew update
         brew upgrade || true
-        brew install --verbose Formula/uemacs.rb
+        brew install --verbose uemacs
 
     - name: Test uEmacs installation
-      run: brew test Formula/uemacs.rb
+      run: brew test uemacs
