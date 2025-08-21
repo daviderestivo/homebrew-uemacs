@@ -34,7 +34,7 @@ jobs:
       run: |
         brew update
         brew upgrade || true
-        brew install uemacs
+        brew install --verbose uemacs
 
     - name: Test uEmacs installation
       run: brew test uemacs
