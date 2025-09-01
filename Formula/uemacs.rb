@@ -5,7 +5,6 @@ class Uemacs < Formula
   url "https://github.com/torvalds/uemacs.git"
   version "4.0.15"
 
-  depends_on "cmake" => :build
   depends_on "gcc"   => :build
 
   def install
