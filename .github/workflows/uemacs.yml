@@ -24,7 +24,7 @@ jobs:
         os: [macos-15]
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Tap uEmacs
       run: |
