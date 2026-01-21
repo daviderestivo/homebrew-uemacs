@@ -5,9 +5,11 @@ class Uemacs < Formula
   url "https://github.com/torvalds/uemacs.git"
   version "4.0.15"
 
-  depends_on "gcc"   => :build
+  depends_on "gcc" => :build
+  depends_on "hunspell"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["hunspell"].opt_lib/"pkgconfig"
     system "make"
     bin.install "em"
   end
