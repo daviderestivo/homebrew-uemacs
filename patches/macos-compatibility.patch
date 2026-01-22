@@ -1,0 +1,54 @@
+diff --git a/display.c b/display.c
+index b603943..7cca518 100644
+--- a/display.c
++++ b/display.c
+@@ -13,6 +13,7 @@
+ #include <stdarg.h>
+ #include <unistd.h>
+ #include <ctype.h>
++#include <stdbool.h>
+ 
+ #include "estruct.h"
+ #include "edef.h"
+diff --git a/pklock.c b/pklock.c
+index 3cdc523..134ce27 100644
+--- a/pklock.c
++++ b/pklock.c
+@@ -54,8 +54,8 @@ char *dolock(char *fname)
+ 	}
+ 	if ((n = read(fd, locker, MAXNAME)) < 1) {
+ 		lseek(fd, 0, SEEK_SET);
+-/*		strcpy(locker, getlogin()); */
+-		cuserid(locker);
++		strcpy(locker, getlogin());
++/*		cuserid(locker); */
+ 		strcat(locker + strlen(locker), "@");
+ 		gethostname(locker + strlen(locker), 64);
+ 		write(fd, locker, strlen(locker));
+diff --git a/posix.c b/posix.c
+index 0e329cb..e447727 100644
+--- a/posix.c
++++ b/posix.c
+@@ -51,12 +51,22 @@ void ttopen(void)
+ 	ntermios.c_iflag &= ~(IGNBRK | BRKINT | IGNPAR | PARMRK | INPCK | INLCR | IGNCR | ICRNL);
+ 
+ 	/* raw CR/NR etc output handling */
++#ifdef OLCUC
+ 	ntermios.c_oflag &= ~(OPOST | ONLCR | OLCUC | OCRNL | ONOCR | ONLRET);
++#else
++	ntermios.c_oflag &= ~(OPOST | ONLCR | OCRNL | ONOCR | ONLRET);
++#endif
+ 
+ 	/* No signal handling, no echo etc */
++#ifdef XCASE
+ 	ntermios.c_lflag &= ~(ISIG | ICANON | XCASE | ECHO | ECHOE | ECHOK
+ 			      | ECHONL | NOFLSH | TOSTOP | ECHOCTL |
+ 			      ECHOPRT | ECHOKE | FLUSHO | PENDIN | IEXTEN);
++#else
++	ntermios.c_lflag &= ~(ISIG | ICANON | ECHO | ECHOE | ECHOK
++			      | ECHONL | NOFLSH | TOSTOP | ECHOCTL |
++			      ECHOPRT | ECHOKE | FLUSHO | PENDIN | IEXTEN);
++#endif
+ 
+ 	/* one character, no timeout */
+ 	ntermios.c_cc[VMIN] = 1;
