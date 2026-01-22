@@ -10,6 +10,7 @@ class Uemacs < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["hunspell"].opt_lib/"pkgconfig"
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc"
     system "make"
     bin.install "em"
   end
