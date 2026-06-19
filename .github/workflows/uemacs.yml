@@ -32,6 +32,7 @@ jobs:
 
     - name: Build uEmacs
       run: |
+        export HOMEBREW_DEVELOPER=1
         brew update
         brew upgrade || true
         brew install --verbose uemacs
