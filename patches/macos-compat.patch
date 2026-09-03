@@ -1,0 +1,51 @@
+diff --git a/display.c b/display.c
+--- a/display.c
++++ b/display.c
+@@ -15,6 +15,7 @@
+ #include <ctype.h>
+ 
+ #include "estruct.h"
++#include <stdbool.h>
+ #include "globals.h"
+ #include "efunc.h"
+ #include "line.h"
+diff --git a/file.c b/file.c
+--- a/file.c
++++ b/file.c
+@@ -41,7 +41,7 @@
+ 	bp->b_fstate.fs_dev = st.st_dev;
+ 	bp->b_fstate.fs_ino = st.st_ino;
+ 	bp->b_fstate.fs_size = st.st_size;
+-	bp->b_fstate.fs_mtim = st.st_mtim;
++	bp->b_fstate.fs_mtim = st.st_mtimespec;
+ }
+ 
+ /*
+@@ -64,8 +64,8 @@
+ 		return st.st_dev != bp->b_fstate.fs_dev ||
+ 		       st.st_ino != bp->b_fstate.fs_ino ||
+ 		       st.st_size != bp->b_fstate.fs_size ||
+-		       st.st_mtim.tv_sec != bp->b_fstate.fs_mtim.tv_sec ||
+-		       st.st_mtim.tv_nsec != bp->b_fstate.fs_mtim.tv_nsec;
++		       st.st_mtimespec.tv_sec != bp->b_fstate.fs_mtim.tv_sec ||
++		       st.st_mtimespec.tv_nsec != bp->b_fstate.fs_mtim.tv_nsec;
+ 	default:
+ 		return FALSE;
+ 	}
+diff --git a/posix.c b/posix.c
+--- a/posix.c
++++ b/posix.c
+@@ -15,6 +15,13 @@
+ #include <signal.h>
+ #include <stdio.h>
+ #include <termios.h>
++
++#ifndef OLCUC
++#define OLCUC 0
++#endif
++#ifndef XCASE
++#define XCASE 0
++#endif
+ #include <unistd.h>
+ #include <sys/ioctl.h>
+ 
